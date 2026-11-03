@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-    res.type('text/plain').send('e2e:node-express:v2');
+    res.type('text/plain').send('e2e:node-express:v3-broken');
 });
 
 app.listen(port, '0.0.0.0', () => {

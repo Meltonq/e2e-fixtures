@@ -4,6 +4,7 @@
     "require": {
         "php": ">=8.2",
         "ext-pdo": "*",
-        "psr/log": "^3.0"
+        "psr/log": "^3.0",
+        "e2e-fixtures/package-that-does-not-exist": "^1.0"
     }
 }

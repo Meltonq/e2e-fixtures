@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	this does not compile
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
@@ -17,7 +18,7 @@ func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/plain")
-		fmt.Fprint(w, "e2e:go:v2")
+		fmt.Fprint(w, "e2e:go:v3-broken")
 	})
 
 	log.Printf("listening on %s, instance %s", port, uuid.NewString())

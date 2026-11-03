@@ -20,4 +20,4 @@ try {
     return;
 }
 
-echo 'e2e:php-mariadb:v2';
+echo 'e2e:php-mariadb:v3-broken';
