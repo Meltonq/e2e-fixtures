@@ -3,6 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 header('Content-Type: text/plain');
+header('X-Logger-Interface: ' . (interface_exists(Psr\Log\LoggerInterface::class) ? 'yes' : 'no'));
 
 try {
     $pdo = new PDO(
@@ -19,4 +20,4 @@ try {
     return;
 }
 
-echo 'e2e:php-mariadb:v1';
+echo 'e2e:php-mariadb:v2';

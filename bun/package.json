@@ -5,5 +5,7 @@
   "scripts": {
     "start": "bun index.ts"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ms": "^2.1.3"
+  }
 }

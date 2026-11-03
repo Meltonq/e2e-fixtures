@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/google/uuid"
 )
 
 func main() {
@@ -15,9 +17,9 @@ func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/plain")
-		fmt.Fprint(w, "e2e:go:v1")
+		fmt.Fprint(w, "e2e:go:v2")
 	})
 
-	log.Printf("listening on %s", port)
+	log.Printf("listening on %s, instance %s", port, uuid.NewString())
 	log.Fatal(http.ListenAndServe("0.0.0.0:"+port, nil))
 }
