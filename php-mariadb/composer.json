@@ -1,0 +1,8 @@
+{
+    "name": "e2e/php-mariadb",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "ext-pdo": "*"
+    }
+}

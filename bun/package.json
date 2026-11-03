@@ -1,0 +1,9 @@
+{
+  "name": "e2e-bun",
+  "private": true,
+  "packageManager": "bun@1.2.0",
+  "scripts": {
+    "start": "bun index.ts"
+  },
+  "dependencies": {}
+}
