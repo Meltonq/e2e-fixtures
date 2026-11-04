@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "start": "deno run --allow-net --allow-env main.ts"
+  },
+  "imports": {
+    "@std/fmt": "jsr:@std/fmt@^1"
+  }
+}
