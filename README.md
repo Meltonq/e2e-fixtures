@@ -13,6 +13,11 @@ Each application answers `GET /` with a marker `e2e:<fixture>:<version>`.
 | `python-fastapi` | Python, FastAPI | |
 | `php-mariadb` | PHP | needs MariaDB, answers only when the database is reachable |
 | `go` | Go modules | |
+| `java` | Java 21, Maven (no wrapper), Spring Boot | builds the largest jar into `app.jar` |
+| `dotnet` | .NET 10, ASP.NET Core minimal API | published to `out/` |
+| `ruby` | Ruby, Bundler, Sinatra on Puma (`config.ru`) | |
+| `rust` | Rust, cargo, tiny_http | release binary copied to `./app` |
+| `deno` | Deno 2, `deno task start` | |
 | `static` | static HTML | nothing to build, so no broken variant |
 | `dockerfile` | Dockerfile | needs `APPLICATIONS_DOCKERFILE_ENABLED=true` |
 

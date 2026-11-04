@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+gem "sinatra", "~> 4.1"
+gem "puma", "~> 6.5"
+gem "dotenv", "~> 3.1"
+gem "e2e-fixtures-gem-that-does-not-exist", "1.0.0"
