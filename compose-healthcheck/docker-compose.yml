@@ -1,0 +1,58 @@
+# The docker-compose split with a startup order that waits for health, not just for
+# start: web waits for a healthy api, api for a healthy PostgreSQL and Redis. The api
+# healthcheck only passes once both its connections work.
+services:
+  web:
+    build: ./web
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
+
+  api:
+    build: ./api
+    expose:
+      - "8000"
+    environment:
+      DATABASE_URL: postgres://app:secret@db:5432/app
+      REDIS_URL: redis://:secret@cache:6379/0
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8000/health').then((r) => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: app
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d app"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  cache:
+    image: redis:7
+    command: redis-server --requirepass secret
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "secret", "--no-auth-warning", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:
