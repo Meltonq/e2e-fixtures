@@ -20,6 +20,7 @@ Each application answers `GET /` with a marker `e2e:<fixture>:<version>`.
 | `deno` | Deno 2, `deno task start` | |
 | `static` | static HTML | nothing to build, so no broken variant |
 | `dockerfile` | Dockerfile | needs `APPLICATIONS_DOCKERFILE_ENABLED=true` |
+| `compose` | docker-compose: `web` and `api` (Node.js), PostgreSQL, Redis, Mailpit | not run by `p:applications:e2e`: with `APPLICATIONS_COMPOSE=true` deploy the folder into a pool from the wizard ("Deploy the whole docker-compose"); `/` of `web` answers `e2e:compose:v1 web` and the reply of `api` with `db=ok cache=ok`. Only on `main` |
 
 Branches simulate pushes:
 
