@@ -1,0 +1,19 @@
+{
+  "name": "e2e-node-peer-deps",
+  "private": true,
+  "version": "1.0.0",
+  "description": "React 18 with a library whose peer range stops at React 17: npm ci fails with ERESOLVE unless .npmrc sets legacy-peer-deps",
+  "main": "server.js",
+  "engines": {
+    "node": "22"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@testing-library/react-hooks": "8.0.1",
+    "express": "^4.21.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

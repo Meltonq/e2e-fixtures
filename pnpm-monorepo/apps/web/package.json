@@ -1,0 +1,13 @@
+{
+  "name": "@e2e/web",
+  "private": true,
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@e2e/shared": "workspace:*",
+    "express": "^4.21.2"
+  }
+}

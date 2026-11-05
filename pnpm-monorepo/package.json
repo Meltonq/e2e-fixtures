@@ -1,0 +1,10 @@
+{
+  "name": "e2e-pnpm-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "pnpm workspaces without root scripts: packages/shared must be built before apps/web starts",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": "22"
+  }
+}
