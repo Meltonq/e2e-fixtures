@@ -1,7 +1,7 @@
 # What a build step can reach from the isolated builder: the internet yes; the node
 # itself, private networks and cloud metadata no. The result is printed in the build
 # log and served by the application, so it can be read without access to the node.
-FROM alpine:3.20
+FROM python:3.12-alpine
 
 # NODE_IP: the public address of the node the build runs on.
 ARG NODE_IP=116.202.51.112
@@ -24,5 +24,6 @@ RUN set -u; \
     } | tee /net.txt
 
 RUN mkdir -p /www && cp /net.txt /www/index.html
+WORKDIR /www
 EXPOSE 8080
-CMD ["sh", "-c", "exec httpd -f -p ${PORT:-8080} -h /www"]
+CMD ["sh", "-c", "exec python -m http.server ${PORT:-8080} --bind 0.0.0.0"]
