@@ -1,0 +1,8 @@
+name: e2e-crystal
+version: 1.0.0
+
+targets:
+  e2e-crystal:
+    main: src/e2e.cr
+
+crystal: ">= 1.0.0"

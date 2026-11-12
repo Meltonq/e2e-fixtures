@@ -18,6 +18,7 @@ Each application answers `GET /` with a marker `e2e:<fixture>:<version>`.
 | `ruby` | Ruby, Bundler, Sinatra on Puma (`config.ru`) | |
 | `rust` | Rust, cargo, tiny_http | release binary copied to `./app` |
 | `deno` | Deno 2, `deno task start` | |
+| `crystal` | Crystal, shards, `HTTP::Server` from the standard library | no runtime image and no Dockerfile: built on the node by nixpacks (`kind=nixpacks`), needs `APPLICATIONS_NIXPACKS_ENABLED=true` with `APPLICATIONS_BUILDPACK=nixpacks` and `applications.nixpacks.enabled` in `wings-apps`; v2 adds `crystal-lang/crystal-db`, the broken variant a `path` shard that does not exist |
 | `static` | static HTML | nothing to build, so no broken variant |
 | `dockerfile` | Dockerfile | needs `APPLICATIONS_DOCKERFILE_ENABLED=true` |
 | `compose` | docker-compose: `web` and `api` (Node.js), PostgreSQL, Redis, Mailpit | not run by `p:applications:e2e`: with `APPLICATIONS_COMPOSE=true` deploy the folder into a pool from the wizard ("Deploy the whole docker-compose"); `/` of `web` answers `e2e:compose:v1 web` and the reply of `api` with `db=ok cache=ok`. Only on `main` |
